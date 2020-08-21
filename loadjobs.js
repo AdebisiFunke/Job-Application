@@ -76,7 +76,7 @@ for (var i = 0; i < jobs.length; i++)
 
 //function applyfor job will send json payload and store data into applications.json file on server
 function sendData() {
- var application_url = "https://dev.spidasoftware.com/apply/application";
+ var application_url = "https://dev.spidasoftware.com/apply/applications";
  
 //create json payload that will be sent to api
    var application= {
