@@ -1,49 +1,87 @@
 /*
-The getjobData function will list available job from https://dev.spidasoftware.com/apply/jobs.
-The apply for job function will send application data to https://dev.spidasoftware.com/apply/applications
-The sendemail function will send email after applying for job position
+* Aim: This script is writen to  list available jobs from https://dev.spidasoftware.com/apply/jobs and send application data to https://dev.spidasoftware.com/apply/applications.
+* This objective is achieved with the use of two functions
+* (1) getJobData function - retreive data from jobs.json file on server to list availabe jobs 
+* (2) sendData function - sends application data as JSON payload to the server and store the data on applications.json file 
 */
-var DATA_URL = "https://dev.spidasoftware.com/apply/jobs";
-window.onload=function(){
-  getJobData(); 
-};
 
+var job_url = "https://dev.spidasoftware.com/apply/jobs";
 
+//when page load excecute getJobData function
+window.onload=function(){getJobData();};
+
+//getJobData function will retrieve data from jason file on server and display it on listjobs.html page
 function getJobData() {
+
+  //Declare variables that stores values 
+  var store_job="";
+  var JobRequirements="";
+  var apply = "Click Apply";
+
+  //Create xmlhttp object that will be used to retreive data
   var xmlhttp = new XMLHttpRequest();
+
+  //check for state of request
   xmlhttp.onreadystatechange = function() {
+
+
+    //check request status 
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
       var jobs = JSON.parse(xmlhttp.responseText);
+     
 
-var x="";
-var apply = "Click Apply "
-
+//create required variables to store values, iterate through requirements and add value of each array elements to variables
 for (var i = 0; i < jobs.length; i++)
 {
-    var JobID =JSON.stringify(jobs[i]._id);
-    var JobPos = JSON.stringify(jobs[i].position);
-    var JobDes = JSON.stringify(jobs[i].description);
-    var JobReq = JSON.stringify(jobs[i].requirements);
-
-    var ap= "apply";
-    //create a container 
-     x+="<br>" + "Job ID: " + JobID +"<br>"+
-         "Job Position: " + JobPos +"<br>"+  "Job Description: "+ JobDes + "<br>"+"Job Requirements: " + JobReq+
-         "<br>"+"<p id='getjobid' onclick='applyforjob()'>" + apply + "</p>";
+    var JobID =jobs[i]._id;
+    var JobPos = jobs[i].position;
+    var JobDes = jobs[i].description;
+    //var JobReq = JSON.stringify(jobs[i].requirements);
+  
+    //declare variable Req_lenght to store length of requirements array 
+    var Req_lenght= jobs[i].requirements.length;
+     
+     for (var j=0; j< Req_lenght; j++){
+    
+       var store_requirements = jobs[i].requirements[j];
+       if (j==Req_lenght-1){
+        JobRequirements += store_requirements;
+       }
+       else
+       JobRequirements += store_requirements + ",";
+     }
+ 
+  
+    //create a container to store data 
+     store_job+="<div class='border p-5 bg-light'><p>" + "Job ID: " + JobID +"</p><p>"+
+     "Job Position: " + JobPos +"</p><p>"+  "Job Description: "+ JobDes +"</p><p>"+"Job Requirements: " + JobRequirements
+     +"</p><p>"+"<button class='btn btn-info' onclick='sendData()'>" + apply + "</button></p></div>";
 }
-
-document.getElementById("Job").innerHTML = x;
+    //Assign the server response to HTML element with id Job, store data in store_job variable
+    document.getElementById("Job").innerHTML = store_job;
     }
+   
+
   };
   
-  xmlhttp.open("GET", DATA_URL , true);
+//initialize HTTP request method GET,  make request to job_url to retreive the JSON file data
+//and make request asynchronous
+  xmlhttp.open("GET", job_url , true);
+
+  //send data
   xmlhttp.send();
 
 }
 
-function applyforjob() {
- var url = "https://dev.spidasoftware.com/apply/applications";
-   //create json data
+
+//function applyfor job will send json payload and store data into applications.json file on server
+function sendData() {
+ var application_url = "https://dev.spidasoftware.com/apply/applications";
+ 
+
+
+   //create json payload that will be sent to api
    var application= {
     "Name":"Funke Adebisi",
     "id":"5f3aea08ead4fc0001be475e",
@@ -54,8 +92,8 @@ function applyforjob() {
    //create xhr object 
 var xhr = new XMLHttpRequest();
 
-//open a connection 
- xhr.open("POST", url, true);
+//initialize HTTP request method  POST 
+ xhr.open("POST", application_url, true);
 
  //set request header 
 xhr.setRequestHeader("Content-Type", "application/json");
@@ -63,17 +101,18 @@ xhr.setRequestHeader("Content-Type", "application/json");
 //create a state change call back
 xhr.onreadystatechange = function () {
 
-  //check ststus of application send
+  //check request status 
    if (xhr.readyState === 4 && xhr.status === 200) {
       console.log("Application successfully sent");
    }else
-        console.log("Unsble to send application");
+      console.log("Unable to send application");
        
    
 };
 
 //convert json data to string
 var data = JSON.stringify(application);
+
 //print data to console
 console.log(data);
 
@@ -81,35 +120,3 @@ console.log(data);
 xhr.send(data);
 }  
   
-
-
-  //send email using NodeMailer Module 
-  //install nodemailer using - npm install nodemailer
-  function sendemail() {
-    var nodemailer = require("nodemailer");
-  
-  var transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: "myemail@gmail.com",
-      pass: "password"
-    }
-  });
-  
-
-  var mailOptions = {
-    from: "myemail@gmail.com",
-    to: "job@spidasoftware.com",
-    subject: "JobID",
-    text: "My JobID is 5f3aea08ead4fc0001be475e"
-  };
-  
-  transporter.sendMail(mailOptions, function(errormsg, info){
-    if (errormsg) {
-      console.log(errormsg);
-    } else {
-      console.log("Email sent: " + info.response);
-    }
-  });
-    }
-    
