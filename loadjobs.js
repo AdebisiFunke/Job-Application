@@ -30,7 +30,6 @@ function getJobData() {
 
       var jobs = JSON.parse(xmlhttp.responseText);
      
-
 //create required variables to store values, iterate through requirements and add value of each array elements to variables
 for (var i = 0; i < jobs.length; i++)
 {
@@ -79,9 +78,7 @@ for (var i = 0; i < jobs.length; i++)
 function sendData() {
  var application_url = "https://dev.spidasoftware.com/apply/applications";
  
-
-
-   //create json payload that will be sent to api
+//create json payload that will be sent to api
    var applications= {
     name:"Funke Adebisi",
     jobid:"5f3aea08ead4fc0001be475e",
@@ -108,7 +105,6 @@ xhr.onreadystatechange = function () {
    }else
       console.log("Unable to send application");
        
-   
 };
 
 //convert json data to string
