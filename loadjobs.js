@@ -14,8 +14,7 @@ window.onload=function(){getJobData();};
 function getJobData() {
 
   //Declare variables that stores values 
-  var store_job="";
-  var JobRequirements="";
+  
   var apply = "Click Apply";
 
   //Create xmlhttp object that will be used to retreive data
@@ -24,7 +23,8 @@ function getJobData() {
   //check for state of request
   xmlhttp.onreadystatechange = function() {
 
-
+    var store_job="";
+    var JobRequirements="";
     //check request status 
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
