@@ -1,7 +1,7 @@
 /*
 * Aim: This script is writen to  list available jobs from https://dev.spidasoftware.com/apply/jobs and send application data to https://dev.spidasoftware.com/apply/applications.
 * This objective is achieved with the use of two functions
-* (1) getJobData function - retreive data from jobs.json file on server to list availabe jobs 
+* (1) getJobData function - retreive data from jobs.json file on server to list availabe jobs to webpage listjobs.html
 * (2) sendData function - sends application data as JSON payload to the server and store the data on applications.json file 
 */
 
