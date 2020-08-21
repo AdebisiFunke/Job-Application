@@ -112,7 +112,7 @@ xhr.onreadystatechange = function () {
 };
 
 //convert json data to string
-var data = JSON.stringify(application);
+var data = JSON.stringify(applications);
 
 //print data to console
 console.log(data);
