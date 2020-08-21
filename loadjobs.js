@@ -46,7 +46,7 @@ function applyforjob() {
     "id":"5f3aea08ead4fc0001be475e",
    "Name":"Funke Adebisi",
    "Justification": "I have the skills and the experience required for the job position and I will be a great addition to your organization",
-   "code":"https://sourceforge.net/projects/sampleprojectpro/"
+   "code":"https://sourceforge.net/projects/sampleprojectpro/, https://github.com/AdebisiFunke/Job-Application"
    }
 
    //create xhr object 
