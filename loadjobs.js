@@ -52,7 +52,7 @@ for (var i = 0; i < jobs.length; i++)
        
      }
  
-     //JobRequirements="";
+     JobRequirements="";
     //create a container to store data 
      store_job+="<div class='border p-5 bg-light'><p>" + "Job ID: " + JobID +"</p><p>"+
      "Job Position: " + JobPos +"</p><p>"+  "Job Description: "+ JobDes +"</p><p>"+"Job Requirements: " + JobRequirements
@@ -86,8 +86,8 @@ function sendData() {
     name:"Funke Adebisi",
     jobid:"5f3aea08ead4fc0001be475e",
    justification: "I have the skills and the experience required for the job position and I will be a great addition to your organization",
-   code:"https://sourceforge.net/projects/sampleprojectpro/",
-   additionalLinks: [ "https://github.com/AdebisiFunke/Job-Application", "https://adebisifunke.github.io/Job-Application/","https://adebisifunke.github.io/Job-Application/listjobs.html"]
+   code:"https://github.com/AdebisiFunke/Job-Application",
+   additionalLinks: [ "https://sourceforge.net/projects/sampleprojectpro/", "https://adebisifunke.github.io/Job-Application/listjobs.html","https://adebisifunke.github.io/precious-kids-preschool/", "https://adebisifunke.github.io/FORMPRO/"]
   }
 
    //create xhr object 
