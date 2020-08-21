@@ -62,9 +62,9 @@ for (var i = 0; i < jobs.length; i++)
        }
        else
        JobRequirements += store_requirements + ",";
-       JobRequirements="";
+       
      }
- 
+ JobRequirements="";
   
     //create a container to store data 
      store_job+="<div class='border p-5 bg-light'><p>" + "Job ID: " + JobID +"</p><p>"+
