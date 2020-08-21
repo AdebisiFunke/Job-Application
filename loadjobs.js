@@ -79,7 +79,7 @@ function sendData() {
  var application_url = "https://dev.spidasoftware.com/apply/application";
  
 //create json payload that will be sent to api
-   var applications= {
+   var application= {
     name:"Funke Adebisi",
     jobid:"5f3aea08ead4fc0001be475e",
    justification: "I have the skills and the experience required for the job position and I will be a great addition to your organization",
