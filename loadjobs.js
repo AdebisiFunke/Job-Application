@@ -1,5 +1,7 @@
 /*
-
+The getjobData function will list available job from https://dev.spidasoftware.com/apply/jobs.
+The apply for job function will send application data to https://dev.spidasoftware.com/apply/applications
+The sendemail function will send email after applying for job position
 */
 var DATA_URL = "https://dev.spidasoftware.com/apply/jobs";
 window.onload=function(){
@@ -40,13 +42,13 @@ document.getElementById("Job").innerHTML = x;
 }
 
 function applyforjob() {
-  var url = "https://dev.spidasoftware.com/apply/applications";
+ var url = "https://dev.spidasoftware.com/apply/applications";
    //create json data
    var application= {
+    "Name":"Funke Adebisi",
     "id":"5f3aea08ead4fc0001be475e",
-   "Name":"Funke Adebisi",
    "Justification": "I have the skills and the experience required for the job position and I will be a great addition to your organization",
-   "code":"https://sourceforge.net/projects/sampleprojectpro/, https://github.com/AdebisiFunke/Job-Application"
+   "code":"https://sourceforge.net/projects/sampleprojectpro/, https://github.com/AdebisiFunke/Job-Application, https://adebisifunke.github.io/Job-Application/"
    }
 
    //create xhr object 
@@ -60,10 +62,14 @@ xhr.setRequestHeader("Content-Type", "application/json");
 
 //create a state change call back
 xhr.onreadystatechange = function () {
+
+  //check ststus of application send
    if (xhr.readyState === 4 && xhr.status === 200) {
-       console.log("successful request!");
+      console.log("Application successfully sent");
    }else
-         console.log("failed request!");
+        console.log("Unsble to send application");
+       
+   
 };
 
 //convert json data to string
@@ -72,27 +78,27 @@ var data = JSON.stringify(application);
 console.log(data);
 
 //send data
-//xhr.send(data);
+xhr.send(data);
 }  
   
 
 
   //send email using NodeMailer Module 
   //install nodemailer using - npm install nodemailer
-  function sendEmail() {
+  function sendemail() {
     var nodemailer = require("nodemailer");
   
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "applicantemail@gmail.com",
-      pass: "applicantpassword"
+      user: "myemail@gmail.com",
+      pass: "password"
     }
   });
   
 
   var mailOptions = {
-    from: "applicantname@gmail.com",
+    from: "myemail@gmail.com",
     to: "job@spidasoftware.com",
     subject: "JobID",
     text: "My JobID is 5f3aea08ead4fc0001be475e"
