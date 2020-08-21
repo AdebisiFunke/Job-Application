@@ -52,7 +52,7 @@ for (var i = 0; i < jobs.length; i++)
        
      }
  
-     JobRequirements="";
+     //JobRequirements="";
     //create a container to store data 
      store_job+="<div class='border p-5 bg-light'><p>" + "Job ID: " + JobID +"</p><p>"+
      "Job Position: " + JobPos +"</p><p>"+  "Job Description: "+ JobDes +"</p><p>"+"Job Requirements: " + JobRequirements
