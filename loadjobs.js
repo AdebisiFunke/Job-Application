@@ -3,6 +3,7 @@
   * This objective is achieved with the use of two functions
   * (1) getJobData function - retreive data from jobs.json file on server to list availabe jobs 
   * (2) sendData function - sends application data as JSON payload to the server and store the data on applications.json file 
+  * Author: Funke Adebisi
   */
 
 var job_url = "https://dev.spidasoftware.com/apply/jobs";
