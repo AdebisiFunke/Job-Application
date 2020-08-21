@@ -81,7 +81,7 @@ function sendData() {
 //create json payload that will be sent to api
    var application= {
     name:"Funke Adebisi",
-    jobid:"5f3aea08ead4fc0001be475e",
+    jobId:"5f3aea08ead4fc0001be475e",
    justification: "I have the skills and the experience required for the job position and I will be a great addition to your organization",
    code:"https://github.com/AdebisiFunke/Job-Application",
    additionalLinks: [ "https://sourceforge.net/projects/sampleprojectpro/", "https://adebisifunke.github.io/Job-Application/listjobs.html","https://adebisifunke.github.io/precious-kids-preschool/", "https://adebisifunke.github.io/FORMPRO/"]
