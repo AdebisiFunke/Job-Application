@@ -1,7 +1,7 @@
 /*
 
 */
-var DATA_URL = "http://localhost:3000/job.json";
+var DATA_URL = "https://dev.spidasoftware.com/apply/jobs";
 window.onload=function(){
   getJobData(); 
 };
@@ -40,7 +40,7 @@ document.getElementById("Job").innerHTML = x;
 }
 
 function applyforjob() {
-  var url = "http://localhost:3000/applications.json";
+  var url = "https://dev.spidasoftware.com/apply/applications";
    //create json data
    var application= {
     "id":"5f3aea08ead4fc0001be475e",
