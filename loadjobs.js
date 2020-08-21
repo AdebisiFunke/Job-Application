@@ -1,7 +1,7 @@
 /*
 * Aim: This script is writen to  list available jobs from https://dev.spidasoftware.com/apply/jobs and send application data to https://dev.spidasoftware.com/apply/applications.
 * This objective is achieved with the use of two functions
-* (1) getJobData function - retreive data from jobs.json file on server to list availabe jobs to webpage listjobs.html
+* (1) getJobData function - retreive data from jobs.json file on server to list availabe jobs 
 * (2) sendData function - sends application data as JSON payload to the server and store the data on applications.json file 
 */
 
@@ -83,9 +83,9 @@ function sendData() {
 
    //create json payload that will be sent to api
    var application= {
-    "Name":"Funke Adebisi",
-    "id":"5f3aea08ead4fc0001be475e",
-   "Justification": "I have the skills and the experience required for the job position and I will be a great addition to your organization",
+    "name":"Funke Adebisi",
+    "jobid":"5f3aea08ead4fc0001be475e",
+   "justification": "I have the skills and the experience required for the job position and I will be a great addition to your organization",
    "code":"https://sourceforge.net/projects/sampleprojectpro/, https://github.com/AdebisiFunke/Job-Application, https://adebisifunke.github.io/Job-Application/"
    }
 
