@@ -37,26 +37,25 @@ for (var i = 0; i < jobs.length; i++)
     var JobID =jobs[i]._id;
     var JobPos = jobs[i].position;
     var JobDes = jobs[i].description;
-    //var JobReq = JSON.stringify(jobs[i].requirements);
   
     //declare variable Req_lenght to store length of requirements array 
     var Req_lenght= jobs[i].requirements.length;
-    var JobReq="";
+    var JobRequirements="";
      for (var j=0; j< Req_lenght; j++){
     
        var store_requirements = jobs[i].requirements[j];
        if (j==Req_lenght-1){
-        JobReq += store_requirements;
+        JobRequirements += store_requirements;
        }
        else
-       JobReq += store_requirements + ",";
+       JobRequirements += store_requirements + ",";
        
      }
  
-     JobReq="";
+     JobRequirements="";
     //create a container to store data 
      store_job+="<div class='border p-5 bg-light'><p>" + "Job ID: " + JobID +"</p><p>"+
-     "Job Position: " + JobPos +"</p><p>"+  "Job Description: "+ JobDes +"</p><p>"+"Job Requirements: " + JobReq
+     "Job Position: " + JobPos +"</p><p>"+  "Job Description: "+ JobDes +"</p><p>"+"Job Requirements: " + JobRequirements
      +"</p><p>"+"<button class='btn btn-info' onclick='sendData()'>" + apply + "</button></p></div>";
 }
     //Assign the server response to HTML element with id Job, store data in store_job variable
