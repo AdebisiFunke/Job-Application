@@ -62,6 +62,7 @@ for (var i = 0; i < jobs.length; i++)
        }
        else
        JobRequirements += store_requirements + ",";
+       var JobRequirements="";
      }
  
   
