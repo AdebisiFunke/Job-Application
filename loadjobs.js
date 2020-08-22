@@ -1,12 +1,12 @@
 /*
-  * Aim: This script is writen to  list available jobs from https://dev.spidasoftware.com/apply/jobs and send application data to https://dev.spidasoftware.com/apply/applications.
+  * Aim: This script is written to  list available jobs from https://dev.spidasoftware.com/apply/jobs and send application data to https://dev.spidasoftware.com/apply/applications.
   * This objective is achieved with the use of two functions
   * (1) getJobData function - retreive data from jobs.json file on server to list availabe jobs 
   * (2) sendData function - sends application data as JSON payload to the server and store the data on applications.json file 
   * Author: Funke Adebisi
   */
 
-//Create xmlhttp object that will be used to retreive data
+//Create xmlhttp object
 var xmlhttp = new XMLHttpRequest();
 
  //when page load excecute getJobData function
@@ -14,17 +14,22 @@ var xmlhttp = new XMLHttpRequest();
    getJobData();
  };
  
- //getJobData function will retrieve data from jason file on server and display it on listjobs.html page
+ /*
+ * getJobData function will retrieve data from JSON file on server and display it on listjobs.html page
+ */
  function getJobData() {
+  //declare variables
   var job_url,apply;
-  //Declare variable that stores url location
+  
+  //declare variable that stores url
   job_url = "https://dev.spidasoftware.com/apply/jobs";
 
-   //Declare variables that stores values 
+   //declare variables that stores values 
    apply = "Click Apply";
  
    //check for state of request
    xmlhttp.onreadystatechange = function() {
+   //declare variables 
    var jobs, store_job, JobID,JobPos,JobDes,Jobs,Req_lenght,JobRequirements, store_requirements;
     store_job = "";
  
@@ -32,7 +37,7 @@ var xmlhttp = new XMLHttpRequest();
      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
        jobs = JSON.parse(xmlhttp.responseText);
  
-       //create required variables to store values, iterate through requirements and add value of each array elements to variables
+       //iterate through and add value of each array element to variables
        for (var i = 0; i < jobs.length; i++) {
          JobID = jobs[i]._id;
          JobPos = jobs[i].position;
@@ -55,7 +60,7 @@ var xmlhttp = new XMLHttpRequest();
            "Job Position: " + JobPos + "</p><p>" + "Job Description: " + JobDes + "</p><p>" + "Job Requirements: " + JobRequirements +
            "</p><p>" + "<button class='btn btn-info' onclick='sendData()'>" + apply + "</button></p></div>";
        }
-       //Assign the server response to HTML element with id Job, store data in store_job variable
+       //assign the server response to HTML element with id Job then store data in store_job variable
        document.getElementById("Job").innerHTML = store_job;
      }
    };
@@ -70,12 +75,17 @@ var xmlhttp = new XMLHttpRequest();
  }
  
  
- //function applyfor job will send json payload and store data into applications.json file on server
+ /*
+ * function sendData() will send JSON payload and store data into applications.json 
+ */
  function sendData() {
+  //declare variables
   var application_url, data;
+  
+  //application_url variable stores url value
   application_url = "https://dev.spidasoftware.com/apply/applications";
  
-   //create json payload that will be sent to api
+   //create JSON payload
    application = {
      name: "Funke Adebisi",
      jobId: "5f3aea08ead4fc0001be475e",
@@ -100,7 +110,7 @@ var xmlhttp = new XMLHttpRequest();
  
    };
  
-   //convert json data to string and store in it in data variable
+   //convert JSON data to string store the value in data variable
    data = JSON.stringify(application);
  
    //send data
