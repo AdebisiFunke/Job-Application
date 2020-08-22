@@ -16,7 +16,7 @@ var xmlhttp = new XMLHttpRequest();
  
  //getJobData function will retrieve data from jason file on server and display it on listjobs.html page
  function getJobData() {
-  var job_url,apply, apply;
+  var job_url,apply;
   //Declare variable that stores url location
   job_url = "https://dev.spidasoftware.com/apply/jobs";
 
