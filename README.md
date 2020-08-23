@@ -1,4 +1,4 @@
-## An Application Program to apply for a Developer Position
+## Application Program To Apply For A Developer Position
 
 Aim: This script is writen to list available jobs from jobs.json and send application data to applications.json on the server
 
