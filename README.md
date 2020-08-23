@@ -2,6 +2,8 @@
 
 Application Program To Apply For A Developer Position
 
+## Aim and Objective
+
 Aim: This script is writen to list available jobs from jobs.json and send application data to applications.json on the server
 
 This objective is achieved with the use of two functions:
