@@ -1,9 +1,9 @@
 /*
-  * Aim: This script is written to  list available jobs from https://dev.spidasoftware.com/apply/jobs and send application data to https://dev.spidasoftware.com/apply/applications.
+  * Aim: This script is written to  list available jobs jobs.json and send application data to applications.json
   * This objective is achieved with the use of two functions
   * (1) getJobData function - retreive data from jobs.json file on server to list availabe jobs 
   * (2) sendData function - sends application data as JSON payload to the server and store the data in applications.json file 
-  * Author: Funke Adebisi
+  * Written by: Funke Adebisi
   */
 
 //Create xmlhttp object
@@ -22,7 +22,7 @@ var xmlhttp = new XMLHttpRequest();
   var job_url,apply;
   
   //declare variable that stores url
-  job_url = "https://dev.spidasoftware.com/apply/jobs";
+  job_url = "jobs.json";
 
    //declare variables that stores values 
    apply = "Click Apply";
@@ -83,7 +83,7 @@ var xmlhttp = new XMLHttpRequest();
   var application_url, data;
   
   //application_url variable stores url value
-  application_url = "https://dev.spidasoftware.com/apply/applications";
+  application_url = "applications.json";
  
    //create JSON payload
    application = {
