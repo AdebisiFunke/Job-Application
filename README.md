@@ -1,6 +1,6 @@
 ## Project Title
 
-Application Program To Apply For A Developer Position
+Application Program To Apply For A Job Position
 
 ## Aim and Objective
 
